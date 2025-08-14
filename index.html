@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A&T Jerseyhub</title>
+  <link rel="icon" href="logo1.jpg" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      padding: 10px;
+  margin: 0;
+  font-family: serif;
+  color: #fff;
+}
+
+.header {
+  background-color: red;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-items: space-between;
+  padding: 10px 20px;
+  font-size: 22px;
+  font-weight: 900px;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 30px;
+  margin-right: 10px;
+}
+
+.menu-icon {
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.menu-icon span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px 0;
+  transition: 0.4s;
+}
+
+.side-menu {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index: 999;
+}
+
+.side-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.side-menu ul li {
+  padding: 15px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.side-menu ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
+
+.side-menu ul li.outlet a {
+  color: red;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 36px;
+  cursor: pointer;
+  color: red;
+}
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .mobile-menu.show {
+        display: block;
+      }
+
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-section {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+
+    @media (max-width: 992px) {
+  .header {
+    font-size: 20px;
+    padding: 10px;
+  }
+  .hero {
+    height: 80vh;
+    padding: 15px;
+  }
+  .footer {
+    padding: 30px 15px;
+  }
+  .hero-img img {
+    max-width: 120px;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    justify-content: space-between;
+  }
+  .logo span {
+    font-size: 18px;
+  }
+  .hero {
+    height: auto;
+    padding: 30px 15px;
+  }
+  #about,
+  #why {
+    padding: 40px 15px;
+  }
+  .disc {
+    font-size: 28px;
+  }
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-section {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    font-size: 18px;
+    padding: 8px 12px;
+  }
+  .menu-icon span {
+    width: 22px;
+  }
+  .hero {
+    padding: 20px 10px;
+  }
+  .hero-img {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .hero-img img {
+    max-width: 100px;
+  }
+  #about p,
+  #why p {
+    font-size: 17px;
+  }
+  .call-btn {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .header {
+    font-size: 16px;
+    padding: 6px 10px;
+  }
+  .logo span {
+    font-size: 16px;
+  }
+  .menu-icon span {
+    width: 20px;
+    height: 2px;
+  }
+  .disc {
+    font-size: 22px;
+  }
+  .hero-img img {
+    max-width: 80px;
+  }
+  .footer-section a {
+    font-size: 14px;
+  }
+  .call-btn {
+    padding: 8px;
+    font-size: 13px;
+  }
+}
+
+    .hero {
+      background-image: url('images/A&T7.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    .hero-content {
+      z-index: 2;
+    }
+
+        .hero-img {
+      flex: 1;
+      min-width: 100px;
+    }
+
+    .hero-img img {
+      width: 100%;
+      max-width: 150px;
+      border-radius: 10px;
+      margin-top: 50px;
+    }
+
+    #about {
+      background: #fff;
+      padding: 60px 10px;
+      color: #000;
+    }
+
+    #about p {
+      font-size: 19px;
+    }
+
+    #why {
+      background: #fff;
+      padding: 60px 10px;
+      color: red;
+      text-align: center;
+      font-size: 19px;
+    }
+
+    .choose {
+      margin-bottom: 20px;
+    }
+
+    #why p {
+      color: black;
+    }
+
+    .disc {
+      font-size: 35px;
+      text-align: center;
+      margin-bottom: 40px;
+      color: black;
+    }
+
+    .footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 40px 20px;
+  border-top: 1px solid #000;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.footer-section h4 {
+  font-size: 14px;
+  color: red;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section li {
+  margin-bottom: 10px;
+}
+
+.footer-section a {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+  font-weight: 350;
+}
+
+.footer-section a:hover {
+  color: #0c1a23;
+}
+
+
+
+    .eup {
+      font-weight: 600;
+      font-size: 15px;
+      text-align: center;
+      color: #0c1a23;
+      font-style: normal;
+      margin-bottom: 15px;
+    }
+
+    .social-icons {
+      margin: 10px 0;
+      text-align: center;
+    }
+    .social-icons a {
+      color: black;
+      font-size: 24px;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .social-icons a:hover {
+      color: #0c1a23;
+    }
+
+    @media screen and (max-width: 600px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+
+    }
+
+    .call-btn {
+  background: #000;
+  color: white;
+  padding: 13.5px;
+  border: 1px;
+  font-weight: 600;
+  margin-top: 20px;
+  border-radius: 3px;
+  text-shadow: 1px 1px 1px rgb(151, 151, 151);
+  cursor: pointer;
+  font-size: 15px;
+}
+
+   .popup-overlay {
+        display: none; 
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.7);
+        z-index: 999;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .popup-box {
+        background: white;
+        color: black;
+        border-radius: 15px;
+        width: 90%;
+        max-width: 400px;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .popup-box p {
+      font-size: 19px;
+    }
+
+    .cloze-btn {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .continue-btn {
+        background: red;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 15px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0; transform: scale(0.9);}
+        to {opacity: 1; transform: scale(1);}
+    }
+
+  </style>
+</head>
+<body>
+<header class="header">
+  <div class="menu-icon" id="menuBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="logo">
+    <span>A&T JERSEYHUB</span>
+  </div>
+</header>
+
+<nav class="side-menu" id="sideMenu">
+  <div class="close-btn" id="closeBtn">&times;</div>
+  <ul>
+    <li><a href="#menuBtn">Home</a></li>
+    <li><a href="#why">About Us</a></li>
+    <li><a href="#serv">Services</a></li>
+    <li><a href="#cont">Contact</a></li>
+    <li class="outlet"><a href="collection.html">Collection</a></li>
+  </ul>
+</nav>
+
+<div class="popup-overlay" id="popup">
+  <div class="popup-box">
+    <button class="cloze-btn" onclick="closePopup()">✖</button>
+    <h2>Welcome to A&T Jerseyhub</h2>
+    <p>click continue to enter this site.</p>
+    <button class="continue-btn" onclick="closePopup()">Continue</button>
+  </div>
+</div>
+
+<script>
+  window.onload = function () {
+    document.getElementById("popup").style.display = "flex";
+  };
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+
+  document.getElementById("popup").addEventListener("click", function (e) {
+    if (e.target === this) {
+      closePopup();
+    }
+  });
+</script>
+
+<script>
+  document.getElementById("menuBtn").onclick = function () {
+    document.getElementById("sideMenu").style.width = "80%";
+  }
+
+  document.getElementById("closeBtn").onclick = function () {
+    document.getElementById("sideMenu").style.width = "0";
+  }
+</script>
+
+  <section class="hero">
+    <div class="hero-content">
+      
+    </div>
+  </section>
+
+  <section id="about">
+    <h1 class="disc">Soccer Team Jerseys</h1>
+    <p>Checkout Our Inventory</p>
+      <button class="call-btn" onclick="window.location.href='collection.html'">Shop Now</button>
+  </section>
+
+  <section id="why">
+        <h2 class="choose">Why shop with us?</h2>
+        <p>As a result of our successful collaboration with major clubs and top brands,we provide original and custom jerseys alongside quality,professionalism and consistency.</p>
+      <div class="hero-img">
+      <img src="shop/Shop5.png" alt4"jersey pic">
+      <img src="shop/Shop6.png" alt="jersey pic">
+
+      <img src="shop/Shop3.jpg" alt="jersey pic">
+      <img src="shop/Shop4.jpg" alt="jersey pic">
+      <button class="call-btn" onclick="window.location.href='collection.html'">View Collection</button>
+    </div>
+      </section>
+
+  <footer class="footer">
+    <div class="footer-section" id="serv">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Football Jerseys (branded & customized)</a></li>
+        <li><a href="#">Basketball Jerseys (branded & customized)</a></li>
+        <li><a href="#">Baseball Jerseys (branded & customized)</a></li>
+        <li><a href="#">Anime Jerseys (coming soon..)</a></li>
+      </ul>
+    </div>
+    <div class="footer-section" id="cont">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="+2348164302043">Phone</a></li>
+        <li><a href="https://instagram.com">Instagram</a></li>
+        <li><a href="https://wa.me/2348164302043">WhatsApp</a></li>
+        <li><a href="https://x.com/plu_topoet?s=21">Twitter</a></li>
+      </ul>
+    </div>
+  </footer>
+<footer>
+    <div class="eup">
+        <div class="social-icons">
+        <a href="https://x.com/plu_topoet?s=21" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/2348164302043" target="_blank" title="Whatsapp"><i class="fas fa-whatsapp"></i></a>
+      </div>
+        <p>A&T Jerseyhub, Copyright &copy;2025</p>
+    </div>
+</footer>
+</body>
+</html>

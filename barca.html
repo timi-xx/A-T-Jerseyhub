@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="E-commerce website">
+  <meta name="keywords" content="e-commerce shopify shopping sneakers">
+  <title>Collections | Barcelona</title>
+  <link rel="icon" href="logo1.jpg" />
+  <script src="https://kit.fontawesome.com/98fce21c87.js" crossorigin="anonymous"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    a { color: grey; text-decoration: none; }
+    .navbar { background: white; }
+    .nv { list-style: none; display: flex; gap: 30px; padding: 0; }
+    .nv li { position: relative; }
+    .nv li a { text-decoration: none; color: black; padding: 10px; position: relative; }
+    .nv li a::after { content: ''; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); width: 0; height: 3px; background-color: orange; transition: width 0.3s ease; }
+    .nv li a:hover::after { width: 70%; }
+    .avatar-img { border: 4px solid orangered; border-radius: 50%; width: 50px; height: 50px; object-fit: cover; cursor: pointer; }
+    .container { max-width: 1200px; margin: auto; padding: 0 20px; }
+    .main { position: relative; }
+    .dark-bg { visibility: hidden; position: fixed; display: none; top: 0; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.9); color: white; justify-content: center; align-items: center; z-index: 1000; }
+    .card1 { display: flex; align-items: center; justify-content: center; height: 100%; }
+    .card img { max-width: 100%; height: auto; border-radius: 20px; }
+    .can { margin-bottom: 10px; display: flex; align-items: center; height: 30px; justify-content: end; }
+    .cancel { color: white; font-size: 20px; }
+    .container2 { max-width: 1200px; margin: 50px auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+    .header-title { font-size: 25px; font-weight: bold; }
+    .divide { display: flex; justify-content: space-between; align-items: center; padding: 20px; box-shadow: 0 2px 2px -2px rgb(140, 136, 136); flex-wrap: wrap; gap: 10px; }
+    .divide1 { display: flex; flex-direction: column; align-items: center; gap: 15px; }
+    .mainproduct { max-width: 100%; height: auto; border-radius: 10px; cursor: pointer; }
+    #boxz { width: 100%; max-width: 500px; line-height: 1.3em; padding: 20px; }
+    #boxz p { text-align: justify; }
+    .box-1, .box-2 { display: flex; align-items: center; gap: 20px; }
+    .box-3 { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+    .p1 { height: 80px; width: 80px; border-radius: 10px; cursor: pointer; object-fit: cover; }
+    .p1:hover { border: 4px solid orangered; opacity: 0.5; }
+    #low { color: rgb(113, 110, 110); margin-bottom: 20px; font-size: 14px; }
+    h2 { letter-spacing: 1px; margin-top: 15px; margin-bottom: 30px; font-size: 30px; line-height: 1.2em; }
+    #sn { font-weight: bold; color: rgb(130, 127, 127); letter-spacing: 2px; font-size: 12px; }
+    .fall { font-size: 28px; margin-bottom: 20px; }
+    .percent { color: white; background-color: black; border-radius: 5px; font-size: 13px; padding: 0px 5px; }
+    .amount { font-weight: bold; margin-bottom: 20px; }
+    .slide { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .opd { padding: 5px 15px; border: none; font-size: 16px; font-weight: bolder; }
+    .sd { display: flex; margin-right: 10px; }
+    #o1 { border-top-left-radius: 10px; border-bottom-left-radius: 10px; color: orangered; font-size: 19px; }
+    #o3 { border-top-right-radius: 10px; border-bottom-right-radius: 10px; color: orangered; font-size: 19px; }
+    .Cart { background-color: red; border: none; border-radius: 10px; color: white; padding: 15px 40px; flex-grow: 1; }
+    .Cart:hover { opacity: 0.7; cursor: pointer; }
+    .cart-dropdown { position: absolute; top: 60px; right: 0; background: white; border-radius: 10px; width: 300px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); padding: 15px; z-index: 1000; display: none; }
+    .cart-dropdown.active { display: block; }
+    .cart-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .cart-item-img { width: 50px; height: 50px; object-fit: cover; border-radius: 5px; }
+    .cart-item-details { flex-grow: 1; font-size: 14px; }
+    .delete-btn { background: transparent; border: none; font-size: 20px; color: #888; cursor: pointer; }
+    .delete-btn:hover { color: #e00; }
+    .checkout-btn { width: 100%; padding: 10px 0; background-color: red; color: white; border: none; border-radius: 5px; cursor: pointer; }
+
+    @media (max-width: 992px) {
+      .container2 { flex-direction: column; align-items: center; }
+      #boxz { padding: 20px; }
+    }
+    @media (max-width: 768px) {
+      .nv { gap: 15px; }
+      .p1 { height: 60px; width: 60px; }
+    }
+    @media (max-width: 600px) {
+      .divide { flex-direction: column; gap: 15px; }
+      .nv { flex-wrap: wrap; justify-content: center; }
+      .p1 { height: 50px; width: 50px; }
+      .cart-dropdown { width: 90%; right: 5%; }
+    }
+    @media (max-width: 400px) {
+      .header-title { font-size: 20px; }
+      .nv { gap: 10px; }
+      .p1 { height: 40px; width: 40px; }
+      .Cart { padding: 10px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class='main'>
+  <nav class="navbar">
+    <div class="container">
+      <div class="divide">
+        <div class="box-1">
+          <h1 class="header-title">Barcelona</h1>
+          <ul class="nv">
+            <li><a href="barca.html">Men</a></li>
+            <li><a href="#">Women</a></li>
+          </ul>
+        </div>
+        <div class="box-2">
+          <i class="fa-solid fa-cart-shopping fa-1x space cart-icon" style="cursor: pointer;"></i>
+          <img src="logo.jpg" alt="avatar" class="avatar-img" />
+          <div class="cart-dropdown">
+            <h3>Cart</h3>
+            <hr />
+            <p>Your cart is empty.</p>
+          </div>
+        </div>
+      </div>
+
+      <section id="section">
+        <div class="container2">
+          <div class="divide1">
+            <img src="Barca/bar1.jpg" alt="product" class="mainproduct">
+            <div class="box-3">
+              <img src="Barca/bar2.jpg" alt="" class="p1">
+              <img src="Barca/bar3.jpg" alt="" class="p1">
+              <img src="Barca/bar4.jpg" alt="" class="p1">
+              <img src="Barca/Barca-3.jpg" alt="" class="p1">
+            </div>
+          </div>
+          <div id="boxz">
+            <p id="sn">A&T Jerseyhub</p>
+            <h2 class="fall">Fall Limited Edition Barca Jerseys</h2>
+            <p id="low">Branded and customizable to suit your whatever.</p>
+            <h2 class="price">&#8358;12,000 <span class="percent">15%</span></h2>
+            <p class="amount"><s>&#8358;15,000</s></p>
+            <div class="slide">
+              <div class="sd">
+                <button class="opd" id="o1">-</button>
+                <button class="opd" id="o2">0</button>
+                <button class="opd" id="o3">+</button>
+              </div>
+              <button class="Cart"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </nav>
+</header>
+
+<div class="dark-bg">
+  <div class="card1">
+    <div class="card">
+      <div class="can">
+        <i class="fa-solid fa-times fa-2x cancel" style="color: red; cursor: pointer;"></i>
+      </div>
+      <button class="prev">&#10094;</button>
+      <img src="images/image-product-1.jpg" alt="">
+      <button class="next">&#10095;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const thumbnails = document.querySelectorAll(".p1");
+  const mainProduct = document.querySelector(".mainproduct");
+  const darkBg = document.querySelector(".dark-bg");
+  const lightboxImg = document.querySelector(".dark-bg img");
+  const closeLightbox = document.querySelector(".cancel");
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
+  const qtyMinus = document.getElementById("o1");
+  const qtyPlus = document.getElementById("o3");
+  const qtyDisplay = document.getElementById("o2");
+  const addToCartBtn = document.querySelector(".Cart");
+  const cartIcon = document.querySelector(".cart-icon");
+  const cartDropdown = document.querySelector(".cart-dropdown");
+
+  let currentIndex = 0;
+  let quantity = 0;
+  let cartItems = [];
+
+  thumbnails.forEach((thumb, index) => {
+    thumb.addEventListener("click", () => {
+      mainProduct.src = thumb.src;
+      currentIndex = index;
+      openLightbox();
+    });
+  });
+
+  mainProduct.addEventListener("click", openLightbox);
+
+  function openLightbox() {
+    lightboxImg.src = mainProduct.src;
+    darkBg.style.display = "flex";
+    darkBg.style.visibility = "visible";
+  }
+
+  closeLightbox.addEventListener("click", () => {
+    darkBg.style.display = "none";
+  });
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
+    changeImage();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % thumbnails.length;
+    changeImage();
+  });
+
+  function changeImage() {
+    const newSrc = thumbnails[currentIndex].src;
+    mainProduct.src = newSrc;
+    lightboxImg.src = newSrc;
+  }
+
+  qtyMinus.addEventListener("click", () => {
+    if (quantity > 0) quantity--;
+    qtyDisplay.textContent = quantity;
+  });
+
+  qtyPlus.addEventListener("click", () => {
+    quantity++;
+    qtyDisplay.textContent = quantity;
+  });
+
+  addToCartBtn.addEventListener("click", () => {
+    if (quantity > 0) {
+      const pricePerItem = 12000; // Price in Naira
+      const totalPrice = pricePerItem * quantity;
+
+      cartItems = [{
+        name: "Fall Limited Edition Barca Jerseys",
+        quantity: quantity,
+        price: pricePerItem,
+        total: totalPrice,
+        img: mainProduct.src
+      }];
+
+      updateCart();
+    }
+  });
+
+  function updateCart() {
+    cartDropdown.innerHTML = `
+      <h3>Cart</h3>
+      <hr/>
+      ${cartItems.length === 0
+        ? `<p>Your cart is empty.</p>`
+        : cartItems.map(item => `
+            <div class="cart-item">
+              <img src="${item.img}" alt="product" class="cart-item-img">
+              <div class="cart-item-details">
+                <p>${item.name}</p>
+                <p>₦${item.price.toLocaleString()} x ${item.quantity} = <strong>₦${item.total.toLocaleString()}</strong></p>
+              </div>
+              <button class="delete-btn">&times;</button>
+            </div>
+            <button class="checkout-btn">Checkout</button>
+          `).join("")
+      }
+    `;
+
+    const deleteBtn = cartDropdown.querySelector(".delete-btn");
+    if (deleteBtn) {
+      deleteBtn.addEventListener("click", () => {
+        cartItems = [];
+        updateCart();
+      });
+    }
+
+    const checkoutBtn =
+    cartDropdown.querySelector(".checkout-btn");
+    if(checkoutBtn) {
+      checkoutBtn.addEventListener("click",() => {
+        window.location.href="order.html";
+      })
+    }
+  }
+
+  cartIcon.addEventListener("click", () => {
+    cartDropdown.classList.toggle("active");
+  });
+</script>
+</body>
+</html>
